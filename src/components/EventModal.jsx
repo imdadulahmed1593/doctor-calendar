@@ -12,7 +12,6 @@ export default function EventModal() {
     selectedEvent ? selectedEvent.gender : ''
   );
   const [age, setAge] = useState(selectedEvent ? selectedEvent.age : 0);
-  //   const [date, setDate] = useState(selectedEvent ? selectedEvent.name : '');
   const [time, setTime] = useState(selectedEvent ? selectedEvent.time : '');
 
   function handleSubmit(e) {
