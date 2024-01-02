@@ -1,21 +1,20 @@
 import dayjs from 'dayjs';
 import React, { useContext, useState, useEffect } from 'react';
+import GlobalContext from '../context/GlobalContext';
 
 export default function Day({ day, rowIdx }) {
   const [dayEvents, setDayEvents] = useState([]);
-  //   const {
-  //     setDaySelected,
-  //     setShowEventModal,
-  //     filteredEvents,
-  //     setSelectedEvent,
-  //   } = useContext(GlobalContext);
+  const { setDaySelected, setShowEventModal, setSelectedEvent, savedEvents } =
+    useContext(GlobalContext);
 
-  //   useEffect(() => {
-  //     const events = filteredEvents.filter(
-  //       (evt) => dayjs(evt.day).format('DD-MM-YY') === day.format('DD-MM-YY')
-  //     );
-  //     setDayEvents(events);
-  //   }, [filteredEvents, day]);
+  useEffect(() => {
+    console.log(savedEvents);
+    const events = savedEvents.filter(
+      (evt) => dayjs(evt.date).format('DD-MM-YY') === day.format('DD-MM-YY')
+    );
+    console.log(events);
+    setDayEvents(events);
+  }, [day, savedEvents]);
 
   function getCurrentDayClass() {
     return day.format('DD-MM-YY') === dayjs().format('DD-MM-YY')
@@ -43,9 +42,9 @@ export default function Day({ day, rowIdx }) {
           <div
             key={idx}
             onClick={() => setSelectedEvent(evt)}
-            className={`bg-${evt.label}-200 p-1 mr-3 text-gray-600 text-sm rounded mb-1 truncate`}
+            className={`bg-blue-200 p-1 mr-3 text-gray-600 text-sm rounded mb-1 truncate`}
           >
-            {evt.title}
+            {evt.name}
           </div>
         ))}
       </div>
