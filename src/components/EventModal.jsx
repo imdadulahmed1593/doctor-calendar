@@ -13,6 +13,7 @@ export default function EventModal() {
   );
   const [age, setAge] = useState(selectedEvent ? selectedEvent.age : 0);
   const [time, setTime] = useState(selectedEvent ? selectedEvent.time : '');
+  const [date, setDate] = useState(selectedEvent ? selectedEvent.date : '');
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -21,7 +22,8 @@ export default function EventModal() {
       age,
       gender,
       time,
-      date: daySelected.valueOf(),
+      //   date: daySelected.valueOf(),
+      date: new Date(date).getTime(),
       id: selectedEvent ? selectedEvent.id : Date.now(),
     };
     if (selectedEvent) {
@@ -31,6 +33,7 @@ export default function EventModal() {
     }
 
     setShowEventModal(false);
+    // console.log(appointment);
   }
   return (
     <div className="h-screen w-full fixed left-0 top-0 flex justify-center items-center">
@@ -91,7 +94,13 @@ export default function EventModal() {
               onChange={(e) => setGender(e.target.value)}
             />
             <label>Schedule:</label>
-            <p className="pt-3 ">{daySelected.format('dddd, MMMM DD')}</p>
+            <input
+              type="date"
+              value={date}
+              className="pt-3 border-0 text-gray-600 placeholder-gray-300 font-semibold w-full border-b-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-blue-500"
+              onChange={(e) => setDate(e.target.value)}
+            />
+            {/* <p className="pt-3 ">{daySelected.format('dddd, MMMM DD')}</p> */}
             <label className="mr-2">Select Time:</label>
             <input
               type="time"

@@ -22,11 +22,11 @@ export default function Day({ day, rowIdx }) {
   }
 
   useEffect(() => {
-    console.log(savedEvents);
+    // console.log(savedEvents);
     const events = savedEvents.filter(
       (evt) => dayjs(evt.date).format('DD-MM-YY') === day.format('DD-MM-YY')
     );
-    console.log(events);
+    // console.log(events);
     setDayEvents(sortDataByTime(events));
   }, [day, savedEvents]);
 
