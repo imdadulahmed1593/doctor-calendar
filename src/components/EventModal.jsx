@@ -40,7 +40,7 @@ export default function EventModal() {
           <span className="font-bold py-3 text-gray-400">
             Appointment Details
           </span>
-          <div>
+          <div className="gap-5 flex items-center">
             {selectedEvent && (
               <FaTrash
                 className=" text-gray-400 cursor-pointer"
@@ -70,8 +70,7 @@ export default function EventModal() {
               className="pt-3 border-0 text-gray-600 placeholder-gray-300 font-semibold w-full border-b-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-blue-500"
               onChange={(e) => setName(e.target.value)}
             />
-            <label>Schedule:</label>
-            <p>{daySelected.format('dddd, MMMM DD')}</p>
+
             <label>Age:</label>
             <input
               type="number"
@@ -92,10 +91,13 @@ export default function EventModal() {
               className="pt-3 border-0 text-gray-600 placeholder-gray-300 font-semibold w-full border-b-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-blue-500"
               onChange={(e) => setGender(e.target.value)}
             />
-            <label>Select Time:</label>
+            <label>Schedule:</label>
+            <p className="pt-3 ">{daySelected.format('dddd, MMMM DD')}</p>
+            <label className="mr-2">Select Time:</label>
             <input
               type="time"
               value={time}
+              className="pt-3 border-0 text-gray-600 placeholder-gray-300 font-semibold w-full border-b-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-blue-500"
               onChange={(e) => setTime(e.target.value)}
             />
           </div>

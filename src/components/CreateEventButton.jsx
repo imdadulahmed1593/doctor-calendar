@@ -6,10 +6,10 @@ export default function CreateEventButton() {
   return (
     <button
       onClick={() => setShowEventModal(true)}
-      className="border p-2 rounded-full flex items-center shadow-md hover:shadow-2xl"
+      className="border text-white bg-gray-900 p-2 rounded-full flex items-center shadow-md hover:shadow-2xl"
     >
       <img src={plusImg} alt="create_event" className="w-7 h-7" />
-      <span className="pl-3 pr-7">Create Appointment</span>
+      <span className="font-bold  pl-3 pr-7">Create Appointment</span>
     </button>
   );
 }
